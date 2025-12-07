@@ -1,0 +1,119 @@
+:root {
+	--primary: seagreen;
+}
+
+.main-wrapper {
+	width: 95%;
+	height: 90vh;
+	border-radius: 30px;
+	box-shadow: 0 0 15px #aaa;
+	background-color: seagreen;
+/*	background: linear-gradient(-45deg, olivedrab, seagreen);*/
+	margin: 5vh auto;
+	overflow: hidden;
+}
+
+.sidebar {
+	box-shadow: 1px 0 10px #354;
+	height: 90vh;
+}
+.main-content {
+	overflow: auto;
+	max-height: 90vh;
+	padding-bottom: 30px;
+}
+
+.menu-heading {
+	border-bottom: 1px solid #eee;
+}
+.menu-heading span {
+	position: relative;
+	bottom: -7px;
+	background-color: seagreen;
+	padding: 0 10px;
+	margin-left: 16px;
+}
+
+.hashlinks {
+	display: block;
+	text-decoration: none!important;
+	padding: 10px 15px;
+}
+.hashlinks span {
+	display: block;
+	padding: 5px 10px;
+	color: #eee;
+}
+.hashlinks:hover span {
+	background-color: rgba(0, 0, 0, 0.1);
+	color: #fff;
+	border-radius: 15px;
+}
+.hashlinks.active span {
+	background-color: rgba(0, 0, 0, 0.2);
+	color: #fff;
+	border-radius: 15px;
+}
+
+.page-body {
+	display: none;
+}
+.page-body.active {display: block;}
+.user-icon {
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+}
+
+
+/* DONATIONS  */
+.donation-item {
+	min-height: 100px;
+	border-radius: 15px;
+	background-color: rgba(0, 0, 0, 0.2);
+	overflow: auto;
+	position: relative;
+}
+.donation-item .img {
+	background-position: center;
+	background-size: cover;
+	height: 130px;
+}
+.info .load {
+	background-color: rgba(255, 255, 255, 0.4);
+}
+.load-bar {
+	background-color: white;
+	position: relative;
+	padding: 3px;
+	border-radius: 6px;
+}
+.load-bar span {
+	position: absolute;
+	right: 0;
+	border-radius: 10px;
+	bottom: 7px;
+	font-size: .7em;
+	background-color: #cc3333;
+	display: block;
+	padding: 1px 4px;
+}
+.donation-overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	background-color: rgba(0, 0, 0, 0.4);
+	display: none;
+}
+.donation-item:hover .donation-overlay { display: flex; }
+
+
+/* Mobile */
+@media only screen and (max-width: 767px) {
+	.sidebar-wrapper {
+		display: none;
+	}
+	.sidebar-wrapper.open {
+		display: block;
+	}
+}
