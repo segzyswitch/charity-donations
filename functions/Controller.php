@@ -3,12 +3,12 @@ session_start();
 class Controller
 {
 	private $db_server = 'localhost';
-	private $db_username = 'velloxaw_default';
-	// private $db_username = 'root';
-	private $db_password = 'Primestar1$';
-	// private $db_password = '';
-	private $db_name = 'velloxaw_charity';
-	// private $db_name = 'povert';
+	// private $db_username = 'velloxaw_default';
+	private $db_username = 'root';
+	// private $db_password = 'Primestar1$';
+	private $db_password = '';
+	// private $db_name = 'velloxaw_charity';
+	private $db_name = 'povert';
 	public $conn;
 
 	public function __construct() {

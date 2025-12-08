@@ -26,13 +26,13 @@ if ( isset($_POST["admin_login"]) ) {
 	    	</div>
 		  <?php
 		}else {
-			$_SESSION['isLoggedIn'] = md5($auth_username);
+			$_SESSION['charityDonationsAdmin'] = md5($auth_username);
 			?>
 	    	<div class="alert alert-success">
 	    		<p><i class="fa fa-hourglass fa-spin"></i> Success, You will be redirected shortly.</p>
 	    	</div>
 		  <?php
-		  header("Location: post-job.php");
+		  // header("Location: post-job.php");
 		}
 	}catch( PDOException $e ) {
 		echo $e->getMessage();

@@ -27,6 +27,38 @@ $(document).ready(function() {
   $(window).on('hashchange', handleHashChange);
 
 	// Add donation
+  $("#loginForm").on('submit', function(e){
+    e.preventDefault();
+
+    $.ajax({
+      url: "process.php",
+      type: "POST",
+      data: new FormData(this),
+      cache: false,
+      contentType: false,
+      processData: false,
+      beforeSend: function() {
+        $("#loginForm .submit-btn").html("loading... <i class='fa fa-cog fa-spin'></i>");
+      },
+      success: function(data) {
+        $("#loginForm .submit-btn").html("Submit");
+        $("#loginForm .feedback").html(data);
+        
+        if ( data.search('success') !== -1 ) {
+          $("#loginForm input").val("");
+          //  window.location.reload();
+          window.location.href = "dashboard";
+        }
+
+      },
+      error: function() {
+        $("#loginForm .submit-btn").html("Submit");
+        $("#loginForm .feedback").html("<div class='alert alert-danger'><i class='bi bi-exclamation-triangle'></i> Sorry, and error occured! <br /> Try again later.</div>");
+      }
+    });
+  });
+
+	// Add donation
   $("#donationForm").on('submit', function(e){
     e.preventDefault();
 

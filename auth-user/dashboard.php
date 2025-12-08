@@ -1,5 +1,9 @@
 <?php
 require '../functions/Controller.php';
+if ( !isset($_SESSION['charityDonationsAdmin']) ) {
+  header("Location: index");
+  exit;
+}
 $Controller = new Controller;
 ?>
 <!DOCTYPE html>
