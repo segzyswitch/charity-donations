@@ -61,6 +61,26 @@ $Controller = new Controller;
         <div class="page-body" id="home">
           <h1>Home</h1>
           <hr class="border-light mb-4" />
+          <div class="row">
+            <div class="col-sm-4 mb-3">
+              <a href="#causes" class="btn donation-item h-100 w-100 text-light py-4">
+                <h1 class="display-1 m-0"><?php echo count($Controller->causes()); ?></h1>
+                <span class="h5 m-0">Donations</span>
+              </a>
+            </div>
+            <div class="col-sm-4 mb-3">
+              <a href="#payment" class="btn donation-item h-100 w-100 text-light py-4">
+                <h1 class="display-1 m-0"><?php echo count($Controller->payment_info()); ?></h1>
+                <span class="h5 m-0">Payment methods</span>
+              </a>
+            </div>
+            <div class="col-sm-4 mb-3">
+              <a href="#payment" class="btn donation-item h-100 w-100 text-light py-4">
+                <h1 class="display-1 m-0"><?php echo count($Controller->popup_donations()); ?></h1>
+                <span class="h5 m-0">Popus</span>
+              </a>
+            </div>
+          </div>
         </div>
         <div class="page-body" id="causes">
           <h1>Donations</h1>
@@ -191,11 +211,11 @@ $Controller = new Controller;
                       style="height:40px;"
                       class="my-auto" 
                     />
-                    <div class="my-auto pl-2 w-100" style="line-height:1em;width:calc(100% - 200px);">
-                      <b class="d-block mb-1"><?php echo $value['tag']; ?></b>
-                      <small class="d-block w-100" style="max-width:100%;word-wrap:wrap;"><?php echo $value['name']; ?></small>
+                    <div class="my-auto pl-2 w-100" style="line-height:1em;max-width:70%;">
+                      <p class="d-block mb-2 overflow-hidden"><b><?php echo $value['tag']; ?></b></p>
+                      <small class="d-block w-100"><?php echo $value['name']; ?></small>
                     </div>
-                    <div class="my-auto pl-2 d-flex" style="line-height:1em;">
+                    <div class="my-auto pl-2" style="line-height:1em;margin-left:auto;">
                       <button class="p-1 mr-2 btn text-light"
                         title="Edit"
                         data-toggle="modal"
