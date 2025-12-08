@@ -42,7 +42,7 @@ $Controller = new Controller;
           <a href="#payment" onclick="$('.sidebar-wrapper').toggleClass('open')" class="hashlinks"><span>Payment Details</span></a>
           <a href="#popupPayment" onclick="$('.sidebar-wrapper').toggleClass('open')" class="hashlinks"><span>Popup donations</span></a>
           <a href="#settings" onclick="$('.sidebar-wrapper').toggleClass('open')" class="hashlinks"><span>Settings</span></a>
-          <a href="#" onclick="$('.sidebar-wrapper').toggleClass('open')" class="hashlinks"><span>Logout</span></a>
+          <a href="logout" onclick="$('.sidebar-wrapper').toggleClass('open')" class="hashlinks"><span>Logout</span></a>
         </div>
       </div>
     </div>
