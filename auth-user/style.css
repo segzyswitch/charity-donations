@@ -110,6 +110,15 @@
 
 /* Mobile */
 @media only screen and (max-width: 767px) {
+	.main-wrapper {
+		width: 100%;
+		height: 100vh;
+		border-radius: 0;
+		margin: 0;
+	}
+	.main-content {
+		max-height: 100vh;
+	}
 	.sidebar-wrapper {
 		display: none;
 	}

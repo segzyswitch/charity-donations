@@ -12,7 +12,7 @@
             <div class="wdgt-bx">
               <div class="logo">
                 <a href="index">
-                  <img src="assets/images/logo.png" alt="logo.png" style="height:50px;" itemprop="image">
+                  <img src="assets/logo.png" alt="logo.png" style="height:50px;" itemprop="image">
                 </a>
               </div>
             </div>

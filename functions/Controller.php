@@ -3,11 +3,13 @@ session_start();
 class Controller
 {
 	private $db_server = 'localhost';
+
 	private $db_username = 'velloxaw_default';
-	// private $db_username = 'root';
-	private $db_password = 'Primestar1$';
-	// private $db_password = '';
 	private $db_name = 'velloxaw_charity';
+	private $db_password = 'Primestar1$';
+
+	// private $db_username = 'root';
+	// private $db_password = '';
 	// private $db_name = 'povert';
 	public $conn;
 
@@ -49,6 +51,16 @@ class Controller
 		return $data;
 	}
 
+	
+	// Get Donations
+	public function donations() {
+		$sql = 'SELECT * FROM donations ORDER BY rand()';
+		$query = $this->conn->prepare($sql);
+		$query->execute();
+		$data = $query->fetchAll();
+		return $data;
+	}
+
 	// Get Faqs
 	public function faqs() {
 		$sql = 'SELECT * FROM faqs ORDER BY rand()';
@@ -69,7 +81,7 @@ class Controller
 
 	// Payment methods
 	public function popup_donations() {
-		$sql = 'SELECT * FROM donations ORDER BY rand()';
+		$sql = 'SELECT * FROM popups ORDER BY rand()';
 		$query = $this->conn->prepare($sql);
 		$query->execute();
 		$data = $query->fetchAll();

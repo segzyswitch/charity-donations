@@ -38,7 +38,8 @@ $Controller = new Controller;
 
         <div class="sidelinks">
           <a href="#home" onclick="$('.sidebar-wrapper').toggleClass('open')" class="hashlinks"><span>Home</span></a>
-          <a href="#causes" onclick="$('.sidebar-wrapper').toggleClass('open')" class="hashlinks"><span>Donations</span></a>
+          <a href="#causes" onclick="$('.sidebar-wrapper').toggleClass('open')" class="hashlinks"><span>Causes</span></a>
+          <a href="#donations" onclick="$('.sidebar-wrapper').toggleClass('open')" class="hashlinks"><span>Donations</span></a>
           <a href="#payment" onclick="$('.sidebar-wrapper').toggleClass('open')" class="hashlinks"><span>Payment Details</span></a>
           <a href="#popupPayment" onclick="$('.sidebar-wrapper').toggleClass('open')" class="hashlinks"><span>Popup donations</span></a>
           <a href="#settings" onclick="$('.sidebar-wrapper').toggleClass('open')" class="hashlinks"><span>Settings</span></a>
@@ -69,6 +70,12 @@ $Controller = new Controller;
             <div class="col-sm-4 mb-3">
               <a href="#causes" class="btn donation-item h-100 w-100 text-light py-4">
                 <h1 class="display-1 m-0"><?php echo count($Controller->causes()); ?></h1>
+                <span class="h5 m-0">Causes</span>
+              </a>
+            </div>
+            <div class="col-sm-4 mb-3">
+              <a href="#causes" class="btn donation-item h-100 w-100 text-light py-4">
+                <h1 class="display-1 m-0"><?php echo count($Controller->donations()); ?></h1>
                 <span class="h5 m-0">Donations</span>
               </a>
             </div>
@@ -87,7 +94,7 @@ $Controller = new Controller;
           </div>
         </div>
         <div class="page-body" id="causes">
-          <h1>Donations</h1>
+          <h1>Causes</h1>
           <hr class="border-light mb-4" />
 
           <div class="donation-wrapper row">
@@ -194,6 +201,46 @@ $Controller = new Controller;
             ?>
           </div>
         </div>
+        <div class="page-body" id="donations">
+          <h1 class="mb-4">Donations</h1>
+
+          <div class="donation-wrapper">
+            <div class="table-wrapper">
+              <table class="table table-hover text-white">
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>Amount</th>
+                    <th>Email</th>
+                    <th>Payment Method</th>
+                    <th>Date</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+              <?php
+                foreach ($Controller->donations() as $key => $value) {
+                  $x = $key + 1;
+                  ?>
+                  <tr>
+                    <td><?php echo $x; ?></td>
+                    <td><?php echo $value['amount']; ?></td>
+                    <td><?php echo $value['email']; ?></td>
+                    <td><?php echo $value['payment_method']; ?></td>
+                    <td><?php echo date('m/d/Y', strtotime($value['createdat'])); ?></td>
+                    <td>
+                      <a href="javascript:void(0)" class="btn btn-link p-0">View uploads(s)</a>
+                    </td>
+                  </tr>
+                  <?php
+                }
+              ?>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
         <div class="page-body" id="payment">
           <h1>Payments</h1>
           <hr class="border-light mb-4" />
@@ -340,6 +387,27 @@ $Controller = new Controller;
                 <?php
               }
             ?>
+          </div>
+        </div>
+        <div class="page-body" id="settings">
+          <h1>Settings</h1>
+          <hr class="border-light mb-4" />
+          <div class="row">
+            <div class="col-sm-6">
+              <form action="javascript:void(0)" class="w-100 rounded border p-3">
+                <h4 class="mb-4"><i class="bi bi-person"></i> Change username</h4>
+                <div class="form-group">
+                  <label>New username</label>
+                  <input type="text" name="admin_username" class="form-control" />
+                </div>
+                <div class="form-group">
+                  <label>Enter password</label>
+                  <input type="password" name="admin_password" class="form-control" />
+                </div>
+                <div class="feedback mb-3"></div>
+                <button type="submit" class="btn btn-success submit-btn border-0 p-2">Update</button>
+              </form>
+            </div>
           </div>
         </div>
       </div>

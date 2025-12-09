@@ -262,7 +262,7 @@ if ( isset($_POST["edit_payment"]) ) {
 if ( isset($_POST['add_popup']) ) {
 	$text = filter_var($_POST["text"], FILTER_SANITIZE_STRING);
 
-	$sql = "INSERT INTO donations(`text`) VALUES('$text')";
+	$sql = "INSERT INTO popups(`text`) VALUES('$text')";
 	$query = $conn->prepare($sql);
 	try {
 		$query->execute();
@@ -279,7 +279,7 @@ if ( isset($_POST['add_popup']) ) {
 if ( isset($_GET["delete_popup"]) ) {
 	$cause_id = $_GET["delete_popup"];
 
-	$sql = "DELETE FROM donations WHERE id = '$cause_id'";
+	$sql = "DELETE FROM popups WHERE id = '$cause_id'";
 	try {
 		$query = $conn->prepare($sql);
 		$query->execute();
@@ -294,7 +294,7 @@ if ( isset($_POST["edit_popup"]) ) {
 
 	$text = filter_var($_POST["text"], FILTER_SANITIZE_STRING);
 
-	$sql = "UPDATE donations SET `text`='$text'";
+	$sql = "UPDATE popups SET `text`='$text'";
 
 	$query = $conn->prepare($sql);
 	try {
