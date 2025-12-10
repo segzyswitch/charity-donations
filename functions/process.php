@@ -27,8 +27,6 @@ if (isset($_GET['get_donations'])) {
 	}
 }
 
-// make donation
-
 // Add donation
 if (isset($_POST['make_donation'])) {
 	$amount = filter_var($_POST["amount"], FILTER_SANITIZE_STRING);
@@ -37,6 +35,12 @@ if (isset($_POST['make_donation'])) {
 
 	$files = $_FILES['images'];
 	$uploadDir = "../assets/images/resources/";
+	// print_r($files);
+
+	if (!$payment_method) {
+		echo "Please select a payment method.";
+		exit;
+	}
 
 	try {
 		// Start transaction
@@ -105,4 +109,5 @@ if (isset($_POST['make_donation'])) {
 		echo $e->getMessage();
 	}
 }
+
 ?>

@@ -54,7 +54,7 @@ class Controller
 	
 	// Get Donations
 	public function donations() {
-		$sql = 'SELECT * FROM donations ORDER BY rand()';
+		$sql = 'SELECT * FROM donations ORDER BY id DESC';
 		$query = $this->conn->prepare($sql);
 		$query->execute();
 		$data = $query->fetchAll();

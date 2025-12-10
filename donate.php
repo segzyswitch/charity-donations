@@ -172,8 +172,14 @@ $percent = round($percent);
                     foreach ($Controller->payment_info() as $key => $value) {
                       ?>
                       <div class="payment-methods mb-0 mt-2" onclick="copyText('<?php echo $value['name']; ?>', '<?php echo $value['tag']; ?>')">
-                        <input type="radio" id="pymnt<?php echo $value['id']; ?>" value="<?php echo $value['name']; ?>"
-                          name="payment_method" class="d-none" required />
+                        <input type="radio"
+                          id="pymnt<?php echo $value['id']; ?>"
+                          value="<?php echo $value['name']; ?>"
+                          name="payment_method"
+                          class="position-absolute"
+                          style="opacity:0;"
+                          required
+                        />
                         <label for="pymnt<?php echo $value['id']; ?>"
                           class="payment-item bg-white h-100 w-100 border d-flex p-2">
                           <img src="assets/images/<?php echo $value['icon']; ?>" style="height:40px;" class="my-auto" />
@@ -194,7 +200,7 @@ $percent = round($percent);
                   <div class="col-md-12 col-sm-12 col-lg-12">
                     <p class="mb-1">Upload reciept or payment files:</p>
                     <!-- Hidden Input -->
-                    <input type="file" id="imagesInput" name="images[]" multiple accept="image/*" style="display:none">
+                    <input type="file" id="imagesInput" name="images[]" multiple accept="image/*" style="display:none;" />
                     <!-- Big Upload Button -->
                     <button type="button" class="w-100 btn bg-light border border-dashed py-5" id="uploadBtn">
                       <i class="bi bi-upload h1"></i>
@@ -229,6 +235,28 @@ $percent = round($percent);
       </div>
     </section>
 
+    <!-- Modal -->
+    <div class="modal fade" id="donateSuccess"  data-backdrop="static" data-keyboard="false"
+      tabindex="-1" aria-labelledby="donateSuccessLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="donateSuccessLabel">Thank you</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <h1 class="text-success text-center display-2"><i class="bi bi-check-circle"></i></h1>
+            <p style="line-height:1.4em;" class="lead mb-2">Your donation has been received successfully. We appreciate your support! We will send you updates via your email.</p>
+          </div>
+          <div class="modal-footer d-flex">
+            <a href="index" class="btn thm-btn m-auto">Go home</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- Footer -->
     <?php include 'inc/footer.php'; ?>
   </main>
@@ -255,8 +283,9 @@ $percent = round($percent);
   <script src="assets/js/perfectscrollbar.min.js"></script>
   <script src="assets/js/scroll-up-bar.min.js"></script>
   <script src="assets/js/custom-scripts.js"></script>
-  <script src="assets/js/forms.js"></script>
+  <!-- <script src="assets/js/forms.js"></script> -->
   <script>
+    // $('#donateSuccess').modal('show');
     const MAX_IMAGES = 5;       // 🔥 Set your limit
     let selectedFiles = [];     // Holds actual File objects
 
@@ -282,6 +311,45 @@ $percent = round($percent);
 
       renderPreviews();
       this.value = ""; // Reset input so user can reselect
+    });
+
+    // Add donation
+    $("#donationForm").on('submit', function(e){
+      e.preventDefault();
+      const formdata = new FormData(this);
+      // Append selected files
+      selectedFiles.forEach((file, index) => {
+        formdata.append('images[]', file);
+      });
+      $.ajax({
+        url: "functions/process.php",
+        type: "POST",
+        data: formdata,
+        cache: false,
+        contentType: false,
+        processData: false,
+        beforeSend: function() {
+          $("#donationForm .submit-btn").html("loading... <i class='fa fa-cog fa-spin'></i>");
+        },
+        success: function(data) {
+          $("#donationForm .submit-btn").html("Submit");
+          $("#donationForm .feedback").html(data);
+          
+          if ( data.search('success') !== -1 ) {
+            $("#donationForm input").val("");
+            // show success modal
+            $('#donateSuccess').modal('show');
+            // reset selected files
+            selectedFiles = [];
+            renderPreviews();
+          }
+
+        },
+        error: function() {
+          $("#donationForm .submit-btn").html("Submit");
+          $("#donationForm .feedback").html("<div class='alert alert-danger'><i class='bi bi-exclamation-triangle'></i> Sorry, and error occured! <br /> Try again later.</div>");
+        }
+      });
     });
 
     function renderPreviews() {

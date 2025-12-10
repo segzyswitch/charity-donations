@@ -229,7 +229,7 @@ $Controller = new Controller;
                     <td><?php echo $value['payment_method']; ?></td>
                     <td><?php echo date('m/d/Y', strtotime($value['createdat'])); ?></td>
                     <td>
-                      <a href="javascript:void(0)" class="btn btn-link p-0">View uploads(s)</a>
+                      <a href="javascript:void(0)" onclick="showProof('<?php echo $value['id']; ?>')" class="text-light">View proof</a>
                     </td>
                   </tr>
                   <?php
@@ -522,8 +522,43 @@ $Controller = new Controller;
   </div>
 </div>
 
+
+<!-- Proof Modal -->
+<div class="modal fade" id="proofModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog pb-5">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Proof of Payment</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">&times;</button>
+      </div>
+      <div class="modal-body">
+        
+      </div>
+      <div class="modal-footer d-flex">
+        <button type="button" class="btn btn-secondary m-auto" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <script src="../assets/js/jquery.min.js"></script>
 <script src="../assets/js/bootstrap.min.js"></script>
 <script src="_js/script.js"></script>
+<script>
+  function showProof(id) {
+    $("#proofModal .modal-body").html('<p class="text-center">Loading...</p>');
+    $("#proofModal").modal('show');
+    $.ajax({
+      url: 'process.php',
+      method: 'GET',
+      data: {
+        get_proof: id
+      },
+      success: function(response) {
+        $("#proofModal .modal-body").html(response);
+      }
+    });
+  }
+</script>
 </body>
 </html>

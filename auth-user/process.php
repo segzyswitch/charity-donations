@@ -308,4 +308,26 @@ if ( isset($_POST["edit_popup"]) ) {
 		echo $e->getMessage();
 	}
 }
+
+
+if (isset($_GET['get_proof'])) {
+	$donation_id = filter_var($_GET["get_proof"], FILTER_SANITIZE_STRING);
+	try {
+		$sql = "SELECT * FROM donation_files WHERE donation_id = :donation_id";
+		$query = $conn->prepare($sql);
+		$query->execute([':donation_id' => $donation_id]);
+		$files = $query->fetchAll();
+
+		if (!$files) {
+			echo "<p>No proof of payment found.</p>";
+			exit;
+		}
+		foreach ($files as $file) {
+			$filePath = $file['file_path'];
+			echo "<div class='mb-3'><img src='{$filePath}' alt='Proof Image' class='img-fluid' /></div>";
+		}
+	} catch (PDOException $e) {
+		echo "Error fetching proof of payment: " . $e->getMessage();
+	}
+}
 ?>
