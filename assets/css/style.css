@@ -46,6 +46,14 @@
   color: #fff;
 }
 
+.single-truncate {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  display: inline-block;  /* inline-block / block / flex item — must have a width */
+  vertical-align: middle; /* optional */
+}
+
 
 /*===== General Styling =====*/
 body, 

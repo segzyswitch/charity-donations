@@ -175,7 +175,7 @@ $Controller = new Controller;
               <span>CharityHuby: <i>17.3 percent</i></span>
               <strong>Donated:<span>$123010</span></strong>
               </div>
-              <a class="thm-btn2" href="donate-now.html" title="" itemprop="url">Donate Now</a>
+              <a class="thm-btn2" href="causes" title="" itemprop="url">Donate Now</a>
             </div>
             <div class="cntry-hlp-bx">
               <div class="cntry-hlp-tp">
@@ -187,7 +187,7 @@ $Controller = new Controller;
               <span>CharityHuby: <i>17.3 percent</i></span>
               <strong>Donated:<span>$123010</span></strong>
               </div>
-              <a class="thm-btn2" href="donate-now.html" title="" itemprop="url">Donate Now</a>
+              <a class="thm-btn2" href="causes" title="" itemprop="url">Donate Now</a>
             </div>
             <div class="cntry-hlp-bx">
               <div class="cntry-hlp-tp">
@@ -199,7 +199,7 @@ $Controller = new Controller;
               <span>CharityHuby: <i>17.3 percent</i></span>
               <strong>Donated:<span>$123010</span></strong>
               </div>
-              <a class="thm-btn2" href="donate-now.html" title="" itemprop="url">Donate Now</a>
+              <a class="thm-btn2" href="causes" title="" itemprop="url">Donate Now</a>
             </div>
             </div>
           </div>

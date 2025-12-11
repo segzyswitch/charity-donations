@@ -258,7 +258,7 @@
               <div class="col-md-3 col-sm-6 col-lg-3">
                 <div class="tem-bx">
                   <div class="tem-thmb" style="background-image: url(assets/images/resources/tem-img1-1.jpg);">
-                    <a href="team-detail.html" title="" itemprop="url"><i class="fa fa-chevron-right"></i></a>
+                    <a href="#" title="" itemprop="url"><i class="fa fa-chevron-right"></i></a>
                     <div class="tem-scl">
                       <a class="facebook" href="#" title="Facebook" itemprop="url" target="_blank"><i class="fa fa-facebook"></i></a>
                       <a class="pinterest" href="#" title="Pinterest" itemprop="url" target="_blank"><i class="fa fa-pinterest-p"></i></a>
@@ -266,7 +266,7 @@
                     </div>
                   </div>
                   <div class="tem-inf">
-                    <h4 itemprop="headline"><a href="team-detail.html" title="" itemprop="url">Lina Carlos</a></h4>
+                    <h4 itemprop="headline"><a href="#" title="" itemprop="url">Lina Carlos</a></h4>
                     <span>Helping Volunteer</span>
                   </div>
                 </div>
@@ -274,7 +274,7 @@
               <div class="col-md-3 col-sm-6 col-lg-3">
                 <div class="tem-bx">
                   <div class="tem-thmb" style="background-image: url(assets/images/resources/tem-img1-2.jpg);">
-                    <a href="team-detail.html" title="" itemprop="url"><i class="fa fa-chevron-right"></i></a>
+                    <a href="#" title="" itemprop="url"><i class="fa fa-chevron-right"></i></a>
                     <div class="tem-scl">
                       <a class="facebook" href="#" title="Facebook" itemprop="url" target="_blank"><i class="fa fa-facebook"></i></a>
                       <a class="pinterest" href="#" title="Pinterest" itemprop="url" target="_blank"><i class="fa fa-pinterest-p"></i></a>
@@ -282,7 +282,7 @@
                     </div>
                   </div>
                   <div class="tem-inf">
-                    <h4 itemprop="headline"><a href="team-detail.html" title="" itemprop="url">Marina Glogovac</a></h4>
+                    <h4 itemprop="headline"><a href="#" title="" itemprop="url">Marina Glogovac</a></h4>
                     <span>CEO, CanadaHelps</span>
                   </div>
                 </div>
@@ -290,7 +290,7 @@
               <div class="col-md-3 col-sm-6 col-lg-3">
                 <div class="tem-bx">
                   <div class="tem-thmb" style="background-image: url(assets/images/resources/tem-img1-3.jpg);">
-                    <a href="team-detail.html" title="" itemprop="url"><i class="fa fa-chevron-right"></i></a>
+                    <a href="#" title="" itemprop="url"><i class="fa fa-chevron-right"></i></a>
                     <div class="tem-scl">
                       <a class="facebook" href="#" title="Facebook" itemprop="url" target="_blank"><i class="fa fa-facebook"></i></a>
                       <a class="pinterest" href="#" title="Pinterest" itemprop="url" target="_blank"><i class="fa fa-pinterest-p"></i></a>
@@ -298,7 +298,7 @@
                     </div>
                   </div>
                   <div class="tem-inf">
-                    <h4 itemprop="headline"><a href="team-detail.html" title="" itemprop="url">Maria Walim</a></h4>
+                    <h4 itemprop="headline"><a href="#" title="" itemprop="url">Maria Walim</a></h4>
                     <span>Event Speaker</span>
                   </div>
                 </div>
@@ -306,7 +306,7 @@
               <div class="col-md-3 col-sm-6 col-lg-3">
                 <div class="tem-bx">
                   <div class="tem-thmb" style="background-image: url(assets/images/resources/tem-img1-4.jpg);">
-                    <a href="team-detail.html" title="" itemprop="url"><i class="fa fa-chevron-right"></i></a>
+                    <a href="#" title="" itemprop="url"><i class="fa fa-chevron-right"></i></a>
                     <div class="tem-scl">
                       <a class="facebook" href="#" title="Facebook" itemprop="url" target="_blank"><i class="fa fa-facebook"></i></a>
                       <a class="pinterest" href="#" title="Pinterest" itemprop="url" target="_blank"><i class="fa fa-pinterest-p"></i></a>
@@ -314,7 +314,7 @@
                     </div>
                   </div>
                   <div class="tem-inf">
-                    <h4 itemprop="headline"><a href="team-detail.html" title="" itemprop="url">Gorge James</a></h4>
+                    <h4 itemprop="headline"><a href="#" title="" itemprop="url">Gorge James</a></h4>
                     <span>President & CEO</span>
                   </div>
                 </div>

@@ -181,11 +181,11 @@ $percent = round($percent);
                           required
                         />
                         <label for="pymnt<?php echo $value['id']; ?>"
-                          class="payment-item bg-white h-100 w-100 border d-flex p-2">
+                          class="bg-white border payment-item h-100 w-100 d-flex p-2">
                           <img src="assets/images/<?php echo $value['icon']; ?>" style="height:40px;" class="my-auto" />
-                          <div class="my-auto pl-2" style="line-height:1em;">
+                          <div class="my-auto pl-2" style="line-height:1em;max-width:75%;">
                             <b class="d-block mb-1"><?php echo $value['name']; ?></b>
-                            <small class="d-block"><?php echo $value['tag']; ?></small>
+                            <small class="d-block single-truncate"><?php echo $value['tag']; ?></small>
                           </div>
                           <div class="my-auto ml-auto">
                             <button class="btn p-0 bi bi-copy" type="button"></button>
