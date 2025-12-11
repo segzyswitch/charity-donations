@@ -86,9 +86,9 @@ $Controller = new Controller;
               </a>
             </div>
             <div class="col-sm-4 mb-3">
-              <a href="#payment" class="btn donation-item h-100 w-100 text-light py-4">
+              <a href="#popups" class="btn donation-item h-100 w-100 text-light py-4">
                 <h1 class="display-1 m-0"><?php echo count($Controller->popup_donations()); ?></h1>
-                <span class="h5 m-0">Popus</span>
+                <span class="h5 m-0">Popups</span>
               </a>
             </div>
           </div>
@@ -318,7 +318,7 @@ $Controller = new Controller;
             ?>
           </div>
         </div>
-        <div class="page-body" id="popupPayment">
+        <div class="page-body" id="popups">
           <h1>Popup donations</h1>
           <hr class="border-light mb-4" />
           <div class="row">
