@@ -59,6 +59,15 @@ $percent = round($percent);
       position: relative;
       z-index: 1;
     }
+    
+    .payment-methods .payment-item {
+      transition: all 0.3s ease;
+    }
+    .payment-methods input:checked + .payment-item {
+      border-color: rgb(37, 194, 105)!important;
+      background-color: rgb(37, 194, 105)!important;
+      color: #fff;
+    }
   </style>
 </head>
 
