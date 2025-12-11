@@ -330,4 +330,81 @@ if (isset($_GET['get_proof'])) {
 		echo "Error fetching proof of payment: " . $e->getMessage();
 	}
 }
+
+
+// Update username
+if ( isset($_POST["update_username"]) ) {
+	$new_username = filter_var($_POST["new_username"], FILTER_SANITIZE_STRING);
+	$retype_username = filter_var($_POST["retype_username"], FILTER_SANITIZE_STRING);
+	$password = filter_var($_POST["password"], FILTER_SANITIZE_STRING);
+
+	$authorize = $conn->prepare("SELECT * FROM admin_user");
+	try {
+		$authorize->execute();
+		$ck_auth = $authorize->fetch();
+
+		if ( $new_username !== $retype_username ) {
+			?>
+	    	<div class="alert alert-danger">
+	    		<p><i class="fa fa-exclamation-circle"></i> Error! Usernames do not match.</p>
+	    	</div>
+		  <?php
+			return false;
+		}
+		if ( !password_verify($password, $ck_auth['password']) ) {
+			?>
+	    	<div class="alert alert-danger">
+	    		<p><i class="fa fa-exclamation-circle"></i> Error! Incorrect password, check and try again.</p>
+	    	</div>
+		  <?php
+			return false;
+		}
+		?>
+			<div class="alert alert-success">
+				<p><i class="fa fa-hourglass fa-spin"></i> New admin username have been set successfully.</p>
+			</div>
+		<?php
+	}catch( PDOException $e ) {
+		echo $e->getMessage();
+		exit();
+	}
+}
+
+// Change password
+if ( isset($_POST["change_password"]) ) {
+	$new_password = filter_var($_POST["new_password"], FILTER_SANITIZE_STRING);
+	$retype_password = filter_var($_POST["retype_password"], FILTER_SANITIZE_STRING);
+	$password = filter_var($_POST["password"], FILTER_SANITIZE_STRING);
+
+	$authorize = $conn->prepare("SELECT * FROM admin_user");
+	try {
+		$authorize->execute();
+		$ck_auth = $authorize->fetch();
+
+		if ( $new_password !== $retype_password ) {
+			?>
+	    	<div class="alert alert-danger">
+	    		<p><i class="fa fa-exclamation-circle"></i> Error! New passwords do not match.</p>
+	    	</div>
+		  <?php
+			return false;
+		}
+		if ( !password_verify($password, $ck_auth['password']) ) {
+			?>
+	    	<div class="alert alert-danger">
+	    		<p><i class="fa fa-exclamation-circle"></i> Error! Incorrect admin password, check and try again.</p>
+	    	</div>
+		  <?php
+			return false;
+		}
+		?>
+			<div class="alert alert-success">
+				<p><i class="fa fa-hourglass fa-spin"></i> New admin password have been set successfully.</p>
+			</div>
+		<?php
+	}catch( PDOException $e ) {
+		echo $e->getMessage();
+		exit();
+	}
+}
 ?>

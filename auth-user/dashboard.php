@@ -41,7 +41,7 @@ $Controller = new Controller;
           <a href="#causes" onclick="$('.sidebar-wrapper').toggleClass('open')" class="hashlinks"><span>Causes</span></a>
           <a href="#donations" onclick="$('.sidebar-wrapper').toggleClass('open')" class="hashlinks"><span>Donations</span></a>
           <a href="#payment" onclick="$('.sidebar-wrapper').toggleClass('open')" class="hashlinks"><span>Payment Details</span></a>
-          <a href="#popupPayment" onclick="$('.sidebar-wrapper').toggleClass('open')" class="hashlinks"><span>Popup donations</span></a>
+          <a href="#popups" onclick="$('.sidebar-wrapper').toggleClass('open')" class="hashlinks"><span>Popup donations</span></a>
           <a href="#settings" onclick="$('.sidebar-wrapper').toggleClass('open')" class="hashlinks"><span>Settings</span></a>
           <a href="logout" onclick="$('.sidebar-wrapper').toggleClass('open')" class="hashlinks"><span>Logout</span></a>
         </div>
@@ -394,18 +394,43 @@ $Controller = new Controller;
           <hr class="border-light mb-4" />
           <div class="row">
             <div class="col-sm-6">
-              <form action="javascript:void(0)" class="w-100 rounded border p-3">
+              <form action="#" id="usernameForm" class="w-100 rounded border p-3">
                 <h4 class="mb-4"><i class="bi bi-person"></i> Change username</h4>
                 <div class="form-group">
                   <label>New username</label>
-                  <input type="text" name="admin_username" class="form-control" />
+                  <input type="text" name="new_username" placeholder="<?php echo $Controller->adminInfo()['username'] ?>" class="form-control" required />
                 </div>
                 <div class="form-group">
-                  <label>Enter password</label>
-                  <input type="password" name="admin_password" class="form-control" />
+                  <label>Retype username</label>
+                  <input type="text" name="retype_username" placeholder="<?php echo $Controller->adminInfo()['username'] ?>" class="form-control" required />
+                </div>
+                <div class="form-group">
+                  <label>Admin password</label>
+                  <input type="password" name="password" placeholder="Enter admin password" class="form-control" required />
                 </div>
                 <div class="feedback mb-3"></div>
-                <button type="submit" class="btn btn-success submit-btn border-0 p-2">Update</button>
+                <input type="hidden" name="update_username" />
+                <button type="submit" class="btn btn-light submit-btn border-0 p-2">Update username</button>
+              </form>
+            </div>
+            <div class="col-sm-6">
+              <form action="#" id="passwordForm" class="w-100 rounded border p-3">
+                <h4 class="mb-4"><i class="bi bi-person"></i> Change password</h4>
+                <div class="form-group">
+                  <label>New password</label>
+                  <input type="text" name="new_password" placeholder="Enter new password" class="form-control" required />
+                </div>
+                <div class="form-group">
+                  <label>Retype password</label>
+                  <input type="text" name="retype_password" placeholder="Retype new password" class="form-control" required />
+                </div>
+                <div class="form-group">
+                  <label>Current password</label>
+                  <input type="password" name="password" placeholder="Enter admin password" class="form-control" required />
+                </div>
+                <div class="feedback mb-3"></div>
+                <input type="hidden" name="change_password" />
+                <button type="submit" class="btn btn-light submit-btn border-0 p-2">Change password</button>
               </form>
             </div>
           </div>

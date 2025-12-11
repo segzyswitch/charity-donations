@@ -26,8 +26,17 @@ class Controller
 	}
 
 	// Home Causes
+	public function adminInfo() {
+		$sql = 'SELECT username, last_updated FROM admin_user';
+		$query = $this->conn->prepare($sql);
+		$query->execute();
+		$data = $query->fetch();
+		return $data;
+	}
+
+	// Home Causes
 	public function home_causes() {
-		$sql = 'SELECT * FROM causes ORDER BY rand() LIMIT 3';
+		$sql = 'SELECT * FROM causes ORDER BY rand()';
 		$query = $this->conn->prepare($sql);
 		$query->execute();
 		$data = $query->fetchAll();

@@ -27,38 +27,6 @@ $(document).ready(function() {
   $(window).on('hashchange', handleHashChange);
 
 	// Add donation
-  $("#loginForm").on('submit', function(e){
-    e.preventDefault();
-
-    $.ajax({
-      url: "process.php",
-      type: "POST",
-      data: new FormData(this),
-      cache: false,
-      contentType: false,
-      processData: false,
-      beforeSend: function() {
-        $("#loginForm .submit-btn").html("loading... <i class='fa fa-cog fa-spin'></i>");
-      },
-      success: function(data) {
-        $("#loginForm .submit-btn").html("Submit");
-        $("#loginForm .feedback").html(data);
-        
-        if ( data.search('success') !== -1 ) {
-          $("#loginForm input").val("");
-          //  window.location.reload();
-          window.location.href = "dashboard";
-        }
-
-      },
-      error: function() {
-        $("#loginForm .submit-btn").html("Submit");
-        $("#loginForm .feedback").html("<div class='alert alert-danger'><i class='bi bi-exclamation-triangle'></i> Sorry, and error occured! <br /> Try again later.</div>");
-      }
-    });
-  });
-
-	// Add donation
   $("#donationForm").on('submit', function(e){
     e.preventDefault();
 
@@ -246,6 +214,66 @@ $(document).ready(function() {
       error: function() {
         $("#editPopupForm"+payId+" .submit-btn").html("Update");
         $("#editPopupForm"+payId+" .feedback").html("<div class='alert alert-danger'><i class='bi bi-exclamation-triangle'></i> Sorry, and error occured! <br /> Try again later.</div>");
+      }
+    });
+  });
+
+  // Username form
+  $("#usernameForm").on('submit', function(e){
+    e.preventDefault();
+
+    $.ajax({
+      url: "process.php",
+      type: "POST",
+      data: new FormData(this),
+      cache: false,
+      contentType: false,
+      processData: false,
+      beforeSend: function() {
+        $("#usernameForm .submit-btn").html("loading... <i class='fa fa-cog fa-spin'></i>");
+      },
+      success: function(data) {
+        $("#usernameForm .submit-btn").html("Update username");
+        $("#usernameForm .feedback").html(data);
+        
+        if ( data.search('success') !== -1 ) {
+          $("#usernameForm input").val("");
+          window.location.reload();
+        }
+      },
+      error: function() {
+        $("#usernameForm .submit-btn").html("Update username");
+        $("#usernameForm .feedback").html("<div class='alert alert-danger'><i class='bi bi-exclamation-triangle'></i> Sorry, and error occured! <br /> Try again later.</div>");
+      }
+    });
+  });
+
+  // Password form
+  $("#passwordForm").on('submit', function(e){
+    e.preventDefault();
+
+    $.ajax({
+      url: "process.php",
+      type: "POST",
+      data: new FormData(this),
+      cache: false,
+      contentType: false,
+      processData: false,
+      beforeSend: function() {
+        $("#passwordForm .submit-btn").html("loading... <i class='fa fa-cog fa-spin'></i>");
+      },
+      success: function(data) {
+        $("#passwordForm .submit-btn").html("Change password");
+        $("#passwordForm .feedback").html(data);
+        
+        if ( data.search('success') !== -1 ) {
+          $("#passwordForm input").val("");
+          window.location.reload();
+        }
+      },
+      error: function() {
+        $("#passwordForm .submit-btn").html("Change password");
+        $("#passwordForm .feedback").html("<div class='alert alert-danger'><i class='bi bi-exclamation-triangle'></i> Sorry, and error occured! <br /> Try again later.</div>");
       }
     });
   });
